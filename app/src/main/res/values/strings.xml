@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Games</string>
+    <string name="login">Login</string>
+    <string name="welcome">Welcome!</string>
+    <string name="description">With our app it will be much easier and more fun to keep track of your games!</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="remember">Remember me</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="new_acc">New Account</string>
+    <string name="photo">Choose a picture</string>
+    <string name="data">Authentication</string>
+    <string name="info">Personal information</string>
+    <string name="name">What is your name?</string>
+    <string name="city">What is your city?</string>
+    <string name="birthday">Birthday</string>
+    <string name="level">What is your gamer level?</string>
+    <string name="console">What is your favorite console?</string>
+    <string-array name="dropdown">
+        <item>Playstation</item>
+        <item>Nintendo Switch</item>
+        <item>Xbox</item>
+        <item>Super Nintendo</item>
+    </string-array>
+
+    <string name="sex">Sex:</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+
+    <string name="personal_data">Personal data</string>
+
+    <string name="finished">Games Finished</string>
+    <string name="currently">Currently Playing</string>
+    <string name="age">Age</string>
+</resources>
