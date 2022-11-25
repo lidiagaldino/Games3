@@ -16,12 +16,7 @@
     <string name="birthday">Birthday</string>
     <string name="level">What is your gamer level?</string>
     <string name="console">What is your favorite console?</string>
-    <string-array name="dropdown">
-        <item>Playstation</item>
-        <item>Nintendo Switch</item>
-        <item>Xbox</item>
-        <item>Super Nintendo</item>
-    </string-array>
+    <string name="newgame">Create a new game</string>
 
     <string name="sex">Sex:</string>
     <string name="female">Female</string>

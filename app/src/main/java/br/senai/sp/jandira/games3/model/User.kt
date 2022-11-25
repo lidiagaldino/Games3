@@ -2,6 +2,7 @@ package br.senai.sp.jandira.games3.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "tbl_user")
 class User {

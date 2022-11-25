@@ -11,6 +11,8 @@ import br.senai.sp.jandira.games3.databinding.ActivitySignUpBinding
 import br.senai.sp.jandira.games3.model.EnumLevel
 import br.senai.sp.jandira.games3.model.User
 import br.senai.sp.jandira.games3.repository.GamesRepository
+import java.text.DateFormat
+import java.util.*
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -82,6 +84,8 @@ class SignUpActivity : AppCompatActivity() {
 
         user.sex = op.toChar()
         user.console = binding.spinner.selectedItem.toString()
+        user.level = EnumLevel.valueOf(binding.enumLevel.text.toString())
+        user.birthDate = binding.editBirthday.text.toString()
 
         userRepository = GamesRepository(this)
 

@@ -47,6 +47,10 @@ class MainActivity : AppCompatActivity() {
 
                 if(logar != null){
                     val openUserActivity = Intent(this, UserActivity::class.java)
+                    openUserActivity.putExtra("name", logar.name)
+                    openUserActivity.putExtra("email", logar.email)
+                    openUserActivity.putExtra("level", logar.level.toString())
+                    openUserActivity.putExtra("date", logar.birthDate)
                     startActivity(openUserActivity)
                 } else{
                     Toast.makeText(this, "oi", Toast.LENGTH_SHORT).show()

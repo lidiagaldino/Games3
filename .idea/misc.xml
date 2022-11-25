@@ -14,9 +14,10 @@
         <entry key="app/src/main/res/drawable/level_bg.xml" value="0.4075" />
         <entry key="app/src/main/res/drawable/user_background_header.xml" value="0.4075" />
         <entry key="app/src/main/res/drawable/user_data_bg.xml" value="0.4075" />
+        <entry key="app/src/main/res/layout/activity_create_new_game.xml" value="0.37552083333333336" />
         <entry key="app/src/main/res/layout/activity_enum_level.xml" value="0.5911458333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5911458333333334" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.5911458333333334" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_user.xml" value="0.5911458333333334" />
         <entry key="app/src/main/res/layout/holder_layout.xml" value="0.38958333333333334" />
         <entry key="app/src/main/res/menu/menu_new_user.xml" value="0.5911458333333334" />
