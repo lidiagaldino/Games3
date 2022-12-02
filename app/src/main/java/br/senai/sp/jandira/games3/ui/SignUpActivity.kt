@@ -11,9 +11,7 @@ import br.senai.sp.jandira.games3.databinding.ActivitySignUpBinding
 import br.senai.sp.jandira.games3.model.EnumLevel
 import br.senai.sp.jandira.games3.model.User
 import br.senai.sp.jandira.games3.repository.GamesRepository
-import java.text.DateFormat
 import java.time.Year
-import java.util.*
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding

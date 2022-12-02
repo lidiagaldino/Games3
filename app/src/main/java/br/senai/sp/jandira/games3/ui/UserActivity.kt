@@ -6,18 +6,17 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.senai.sp.jandira.games3.R
 import br.senai.sp.jandira.games3.adapter.GamesAdapter
-import br.senai.sp.jandira.games3.dao.JogosDao
-import br.senai.sp.jandira.games3.model.User
+import br.senai.sp.jandira.games3.repository.GamesRepository
 import java.time.Year
 
 class UserActivity : AppCompatActivity() {
     lateinit var rvGames: RecyclerView
     lateinit var adapterGames: GamesAdapter
+    lateinit var gamesRepository: GamesRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +39,20 @@ class UserActivity : AppCompatActivity() {
         email.text = intent.getStringExtra("email")
         level.text = intent.getStringExtra("level")
         age.text = ageNumber.toString()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        carregarRV()
+    }
 
-        adapterGames = GamesAdapter(this)
-        adapterGames.updateGamesList(JogosDao.getGames(this))
+    private fun carregarRV() {
+        gamesRepository = GamesRepository(this)
+
+        val lista = gamesRepository.getAllGames()
+
+        adapterGames = GamesAdapter(lista,this)
+        adapterGames.updateGamesList(gamesRepository.getAllGames())
 
         rvGames.adapter = adapterGames
     }

@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/ic_baseline_image_24" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editNameGame"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editCompanyGame"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -66,12 +66,12 @@
         android:hint="Company"
         android:inputType="textPersonName"
         android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintEnd_toEndOf="@+id/editNameGame"
+        app:layout_constraintStart_toStartOf="@+id/editNameGame"
+        app:layout_constraintTop_toBottomOf="@+id/editNameGame" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/editDateGame"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -80,12 +80,12 @@
         android:hint="Date"
         android:inputType="date"
         android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintEnd_toEndOf="@+id/editCompanyGame"
+        app:layout_constraintStart_toStartOf="@+id/editCompanyGame"
+        app:layout_constraintTop_toBottomOf="@+id/editCompanyGame" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editDescriptionGame"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -94,8 +94,17 @@
         android:hint="Description"
         android:inputType="textPersonName"
         android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextDate"
-        app:layout_constraintStart_toStartOf="@+id/editTextDate"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintEnd_toEndOf="@+id/editDateGame"
+        app:layout_constraintStart_toStartOf="@+id/editDateGame"
+        app:layout_constraintTop_toBottomOf="@+id/editDateGame" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="@+id/editDescriptionGame"
+        app:layout_constraintTop_toBottomOf="@+id/editDescriptionGame" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

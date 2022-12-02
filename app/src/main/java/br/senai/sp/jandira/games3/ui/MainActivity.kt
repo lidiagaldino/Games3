@@ -4,9 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.util.Log
 import android.widget.Toast
-import br.senai.sp.jandira.games3.R
 import br.senai.sp.jandira.games3.databinding.ActivityMainBinding
 import br.senai.sp.jandira.games3.model.Console
 import br.senai.sp.jandira.games3.repository.GamesRepository
@@ -46,7 +44,6 @@ class MainActivity : AppCompatActivity() {
                 val senha = binding.editPass.text.toString()
 
                 val logar = userRepository.autenticate(usuario, senha)
-                Toast.makeText(this, "$logar", Toast.LENGTH_SHORT).show()
 
                 if(logar != null){
                     if (binding.checkBox.isChecked){

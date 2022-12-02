@@ -12,11 +12,10 @@ import br.senai.sp.jandira.games3.R
 import br.senai.sp.jandira.games3.model.Games
 import br.senai.sp.jandira.games3.model.Jogos
 
-class GamesAdapter(val context: Context): RecyclerView.Adapter<GamesAdapter.HolderGames>() {
+class GamesAdapter(var gamesList: List<Games>, val context: Context): RecyclerView.Adapter<GamesAdapter.HolderGames>() {
 
-    private var gamesList = listOf<Jogos>()
 
-    fun updateGamesList(games: List<Jogos>){
+    fun updateGamesList(games: List<Games>){
         this.gamesList = games
         notifyDataSetChanged()
     }
@@ -26,14 +25,14 @@ class GamesAdapter(val context: Context): RecyclerView.Adapter<GamesAdapter.Hold
         val textTituloGames = view.findViewById<TextView>(R.id.holder_titulo)
         val textMarcaGames = view.findViewById<TextView>(R.id.holder_marca)
         val textDescricacao = view.findViewById<TextView>(R.id.holder_descricao)
-        val imageHolder = view.findViewById<ImageView>(R.id.holder_image)
+        val imageHolder = view.findViewById<TextView>(R.id.nomeJogo)
 
-        fun bind(games: Jogos) {
+        fun bind(games: Games) {
 
             textTituloGames.text = games.name
             textDescricacao.text = games.descricao
             textMarcaGames.text = games.company
-            imageHolder.setImageDrawable(games.photo)
+            imageHolder.text = games.name
 
         }
     }
