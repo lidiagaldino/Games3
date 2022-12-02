@@ -12,6 +12,7 @@ import br.senai.sp.jandira.games3.model.EnumLevel
 import br.senai.sp.jandira.games3.model.User
 import br.senai.sp.jandira.games3.repository.GamesRepository
 import java.text.DateFormat
+import java.time.Year
 import java.util.*
 
 class SignUpActivity : AppCompatActivity() {
@@ -60,9 +61,10 @@ class SignUpActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if(item.itemId == R.id.menu_save){
-            user = User()
-            save()
-            Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
+            if (verificar()){
+                user = User()
+                save()
+            }
             return true
         }else if(item.itemId == R.id.menu_setting){
             Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT).show()
@@ -71,6 +73,31 @@ class SignUpActivity : AppCompatActivity() {
             Toast.makeText(this, "Sair", Toast.LENGTH_SHORT).show()
             return true
         }
+    }
+
+    private fun verificar(): Boolean {
+
+        if (Year.now().value < binding.editBirthday.text.toString().substring(0, 4).toInt()){
+            binding.editBirthday.error = "Digite uma data valida"
+            return false
+        }
+
+        if (binding.editEmail.text.isEmpty()){
+            binding.editEmail.error = "E-mail obrigatório"
+            return false
+        }
+
+        if (binding.editName.text.isEmpty()){
+            binding.editName.error = "Nome obrigatório"
+            return false
+        }
+
+        if (binding.editPassword.text.isEmpty()){
+            binding.editPassword.error = "Senha é obrigatório"
+            return false
+        }
+
+        return true
     }
 
     private fun save() {
@@ -92,7 +119,7 @@ class SignUpActivity : AppCompatActivity() {
 
         val id = userRepository.saveUser(user)
 
-        Toast.makeText(this, "ID: $id", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Salvo", Toast.LENGTH_LONG).show()
 
 
         finish()

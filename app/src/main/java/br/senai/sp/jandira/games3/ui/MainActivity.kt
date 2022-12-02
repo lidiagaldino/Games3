@@ -3,6 +3,7 @@ package br.senai.sp.jandira.games3.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.widget.Toast
 import br.senai.sp.jandira.games3.R
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(openSignupActivity)
         }
 
+        checkRemember()
+
         binding.buttonLogin.setOnClickListener {
 
             if(inputValidate()){
@@ -46,6 +49,13 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "$logar", Toast.LENGTH_SHORT).show()
 
                 if(logar != null){
+                    if (binding.checkBox.isChecked){
+                        val sharedPreferences = getSharedPreferences("user", MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("email", logar.email)
+                        editor.putString("senha", logar.password)
+                        editor.commit()
+                    }
                     val openUserActivity = Intent(this, UserActivity::class.java)
                     openUserActivity.putExtra("name", logar.name)
                     openUserActivity.putExtra("email", logar.email)
@@ -53,9 +63,25 @@ class MainActivity : AppCompatActivity() {
                     openUserActivity.putExtra("date", logar.birthDate)
                     startActivity(openUserActivity)
                 } else{
-                    Toast.makeText(this, "oi", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Usuário não encontrado", Toast.LENGTH_SHORT).show()
                 }
             }
+
+        }
+    }
+
+    private fun checkRemember() {
+
+        val sharedPreferences = getSharedPreferences("user", MODE_PRIVATE)
+        val email = sharedPreferences.getString("email", "") as String
+        val pass = sharedPreferences.getString("senha", "") as String
+
+        if (email.isNotEmpty() || pass.isNotEmpty()){
+
+            fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this)
+            
+            binding.editPass.text = pass.toEditable()
+            binding.editEmail.text = email.toEditable()
 
         }
     }

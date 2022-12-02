@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.games3.model
 
+import android.graphics.drawable.Drawable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

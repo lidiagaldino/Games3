@@ -1,16 +1,19 @@
 package br.senai.sp.jandira.games3.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.senai.sp.jandira.games3.R
 import br.senai.sp.jandira.games3.adapter.GamesAdapter
-import br.senai.sp.jandira.games3.databinding.ActivitySignUpBinding
+import br.senai.sp.jandira.games3.dao.JogosDao
 import br.senai.sp.jandira.games3.model.User
-import java.time.LocalDate
+import java.time.Year
 
 class UserActivity : AppCompatActivity() {
     lateinit var rvGames: RecyclerView
@@ -29,7 +32,9 @@ class UserActivity : AppCompatActivity() {
         val level = findViewById<TextView>(R.id.level)
         var age = findViewById<TextView>(R.id.age)
 
-        val ageNumber = LocalDate.parse(age.toString())
+        val dataNascimento = intent.getStringExtra("date")
+
+        val ageNumber = Year.now().value - (dataNascimento?.substring(0, 4)?.toInt() ?: Year.now().value)
 
         nome.text = intent.getStringExtra("name")
         email.text = intent.getStringExtra("email")
@@ -37,16 +42,28 @@ class UserActivity : AppCompatActivity() {
         age.text = ageNumber.toString()
 
 
-        //adapterGames = GamesAdapter(this)
-        //adapterGames.updateGamesList(GamesDao.getGames(this))
+        adapterGames = GamesAdapter(this)
+        adapterGames.updateGamesList(JogosDao.getGames(this))
 
-        //rvGames.adapter = adapterGames
+        rvGames.adapter = adapterGames
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_user, menu)
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId == R.id.menu_add){
+            val openCreateNewGameActivity = Intent(this, CreateNewGameActivity::class.java)
+            startActivity(openCreateNewGameActivity)
+
+            return true
+        }
 
         return true
     }

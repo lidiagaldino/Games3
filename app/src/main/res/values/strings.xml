@@ -13,7 +13,7 @@
     <string name="info">Personal information</string>
     <string name="name">What is your name?</string>
     <string name="city">What is your city?</string>
-    <string name="birthday">Birthday</string>
+    <string name="birthday">Year</string>
     <string name="level">What is your gamer level?</string>
     <string name="console">What is your favorite console?</string>
     <string name="newgame">Create a new game</string>
