@@ -1,16 +1,13 @@
 package br.senai.sp.jandira.games3.adapter
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.senai.sp.jandira.games3.R
 import br.senai.sp.jandira.games3.model.Games
-import br.senai.sp.jandira.games3.model.Jogos
 
 class GamesAdapter(var gamesList: List<Games>, val context: Context): RecyclerView.Adapter<GamesAdapter.HolderGames>() {
 
